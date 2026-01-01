@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'i18n/tasks/cli'
-require 'i18n/tasks/reports/terminal'
+require "i18n/tasks/cli"
+require "i18n/tasks/reports/terminal"
 
 module I18n::Tasks
   module Command
@@ -17,8 +17,8 @@ module I18n::Tasks
 
       def run(name, opts = {})
         name = name.to_sym
-        public_name = name.to_s.tr '_', '-'
-        log_verbose "task: #{public_name}(#{opts.map { |k, v| "#{k}: #{v.inspect}" } * ', '})"
+        public_name = name.to_s.tr "_", "-"
+        log_verbose "task: #{public_name}(#{opts.map { |k, v| "#{k}: #{v.inspect}" } * ", "})"
         if opts.empty? || method(name).arity.zero?
           send name
         else
